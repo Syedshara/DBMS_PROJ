@@ -1,38 +1,639 @@
-.App {
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.App::-webkit-scrollbar {
+  display: none;
+}
+.Home::-webkit-scrollbar {
+  display: none;
+}
+.Search::-webkit-scrollbar {
+  display: none;
+}
+.List::-webkit-scrollbar {
+  display: none;
+}
+.Body::-webkit-scrollbar {
+  display: none;
+}
+.Form {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+.Form::-webkit-scrollbar {
+  display: none;
+}
+.Form::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0, 0.5) url("./image/background.jpg") center/cover
+    no-repeat;
+  background-blend-mode: darken;
+  z-index: -1;
+}
+.Header {
+  color: white;
+  padding: 1em;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: -1;
+}
+.head {
+  height: 20vh;
+  background: rgb(0, 0, 0, 0.8) url("nav2.jpg") center/cover;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+.head div {
+  padding-top: 30px;
+}
+
+.Nav {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-family: "Josefin Sans", sans-serif;
+  padding: 1rem;
+  letter-spacing: 1px;
+  font-weight: 300px;
+  margin-left: 5px;
+  font-size: 0.9rem;
+}
+.Nav:hover {
+  background-color: #af9f9f31;
+  color: white;
+  border-radius: 2rem;
+}
+
+.active {
+  background-color: #af9f9f31;
+  color: white;
+  border-radius: 2rem;
+}
+nav {
+  display: flex;
+  justify-self: left;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgb(255, 251, 251);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.Section {
+  background-color: #f2f3f7cd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+input,
+select,
+textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="date"] {
+  padding: 10px 12px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.flex-container > div {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.group-header {
+  text-align: left;
+  font-size: 18px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  color: #333;
+}
+.Body {
+  display: grid;
+  grid-template-areas:
+    "b1 b2"
+    "b1 b2";
+  grid-template-columns: 1.1fr 4fr;
+  grid-template-rows: 1.1fr 4fr;
+  max-width: 100vw;
+  max-height: 80vh;
+  font-size: 1rem;
+  overflow: hidden;
+}
+.Body .Search {
+  grid-area: b1;
+  background-color: #f7f7f7;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 80vh;
+}
+.Body .List {
+  grid-area: b2;
+  background-color: #ffffff;
+  margin-left: 30px;
+}
+.light-box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+}
+.radio-group div {
+  display: flex;
+  gap: 10px;
+}
+.Search div div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: relative;
+}
+.ficon {
+  background-color: #dddfe2;
+  font-size: 1.3rem;
+  padding: 10px;
+  border-radius: 5px;
+}
+.ficon:hover {
+  cursor: pointer;
+  background-color: #e7eaed;
+}
+.Search div {
+  display: flex;
+  gap: 10px;
+}
+.sfield {
+  width: 240px;
+  height: 50px;
+  background-color: #dddfe2;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  padding-left: 30px;
+  padding-right: 40px;
+  margin-left: 5px;
+  color: black;
+  font-size: 1rem;
+  font-family: "Mandali", sans-serif;
+}
+.sfield:hover {
+  box-shadow: 0px 0px 2px rgb(28, 17, 17);
+  transition: 0.1s;
+}
+.sfield:focus {
+  box-shadow: 0px 0px 2px rgb(0, 0, 0);
+
+  transition: 0.1s;
+}
+.sfield::placeholder {
+  font-size: 1rem;
+  padding: 0px 5px;
+  font-family: "Mandali", sans-serif;
+  color: rgb(104, 104, 104);
+}
+.sicon {
+  position: absolute;
+  top: 0;
+  font-size: 1.8rem;
+  top: 28px;
+  right: 15px;
+  cursor: pointer;
+  font-weight: 40;
+}
+.sicon:hover {
+  cursor: pointer;
+}
+.dropdown-box {
+  display: block;
+}
+.btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
   text-align: center;
+  display: block;
+  margin: 0 10px;
+  margin-bottom: 10px;
+  background-color: #e22a2a;
+  font-size: 0.8rem;
+  color: #fff;
+}
+button {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+}
+textarea {
+  resize: none;
+}
+.add {
+  margin: 1px 0;
+  padding: 12px;
+}
+.reset-button {
+  background-color: #808080; /* Grey color */
+  color: white;
+  padding: 15px 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.submit-button {
+  background-color: rgb(232, 89, 89); /* Red color */
+  color: white;
+  padding: 15px 20px;
+}
+.mandatory-star {
+  color: red;
+  margin-left: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button:hover {
+  opacity: 0.8;
+}
+.Footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+.f1 {
+  border-top: 1px solid gray;
+}
+.filters {
+  display: flex;
+  width: 350px;
+  justify-content: center;
+  align-items: center;
+  background-color: #58588a01;
+  overflow-x: hidden;
+  user-select: none;
+}
+.filters input {
+  width: 20%;
+  margin-left: 20px;
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  margin-top: 8px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: relative;
+}
+.filters .check {
+  position: absolute;
+  left: 24px;
+  top: 22px;
+  font-size: 15px;
+  margin-right: 5px;
+}
+.filters label {
+  width: 80%;
+  padding: 20px 30px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 550;
+}
+.filters:hover {
+  background-color: #d2d2d2ce;
+}
+.Search::-webkit-scrollbar {
+  display: none;
+}
+.List {
+  overflow: scroll;
+}
+.List .title {
+  display: flex;
+  overflow: scroll;
+}
+.title div {
+  padding: 0px 20px;
+  font-size: 1.7rem;
+  margin-top: 15px;
+}
+th {
+  background-color: #dddfe2;
+  width: 300px;
+  height: 40px;
+  font-weight: bold;
+  padding: 10px 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+td {
+  padding: 15px 30px;
+  text-align: center;
+  max-width: 150px; /* Set your desired maximum width */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+td.expanded {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+table {
+  border-collapse: collapse;
+  overflow: scroll;
+  font-family: "Montserrat", sans-serif;
+}
+table::-webkit-scrollbar {
+  display: none;
+}
+.Import {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+}
+.Import button {
+  background-color: silver;
+  padding: 10px 25px;
+  border-radius: 10px;
+}
+.link {
+  text-decoration: none;
+  font-weight: 550;
+  color: black;
+}
+.link :hover {
+  background-color: #ccc;
+}
+.full {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 45px;
+}
+/* Define an animation for the dropdown effect */
+@keyframes dropIn {
+  0% {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+  50% {
+    max-height: 50px; /* Adjust the max-height as needed */
+    opacity: 0.5;
+    visibility: hidden;
+  }
+  100% {
+    max-height: 100px; /* Adjust the max-height as needed */
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Add styles for the input field */
+.drop {
+  outline: none;
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid gray;
+  background-color: transparent;
+  font-size: 0.9rem;
+  display: none;
+}
+
+/* Show input field when checkbox is checked */
+.dropping {
+  display: block;
+}
+.next {
+  display: flex;
+  padding: 10px;
+  padding-bottom: 20px;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.next button {
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-radius: 10px;
+}
+.duration {
+  display: flex;
+  gap: 20px;
+}
+.radio-group {
+  margin: 10px;
+}
+.first {
+  display: flex;
+
+  align-items: center;
+  gap: 10px;
+}
+.first input {
+  width: 450px;
+}
+.first select {
+  width: 60px;
+  height: 30px;
+}
+.main_title {
+  padding: 20px;
+}
+.Login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 70px 50px;
+  border-radius: 5px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.Login .l {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  gap: 20px;
+}
+.l input {
+  width: 400px;
+  height: 50px;
+  font-size: 0.8rem;
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+  padding-left: 20px;
+}
+.l input:focus {
+  box-shadow: rgba(55, 52, 52, 0.354) 0px 0px 10px 2px;
+}
+.f button {
+  width: 400px;
+  height: 60px;
+  font-size: 1.1rem;
+  font-weight: bolder;
+  border-radius: 60px;
+  background-color: #fc6666;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.Edit {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Edit div img {
+  width: 190px;
+  height: 190px;
+  opacity: 0.8;
+}
+.Home {
+  background-color: #f4f4f4;
+  padding: 10px 50px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 70vh;
+  padding-bottom: 100px;
+  scroll-behavior: smooth;
+}
+.candidate-status {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+}
+.candidate-status .Search {
+  background-color: white;
+  padding: 0px 10px;
+}
+.candidate-status .List {
+  background-color: white;
+  height: 55vh;
+}
+.candidate-status select {
+  width: 200px;
+  height: 30px;
+  font-size: 0.8rem;
+}
+.listing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  justify-self: flex-end;
+  gap: 20px;
+}
+.listing input {
+  width: 300px;
+  height: 40px;
+  outline: none;
+  font-size: 0.8rem;
+}
+.listing button {
+  height: 40px;
+  margin-bottom: 15px;
+  background-color: rgb(63, 63, 202);
+  color: #ddd;
+  padding: 5px 10px;
+}
+.Heading h2 {
+  color: rgb(0, 0, 0, 0.7);
+}
+.f2:hover {
+  background-color: transparent;
+}
+.Nav {
+  max-width: 30vh;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+}
+.box .ficon {
+  width: 100%;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: rgb(0, 0, 0, 0.7);
+  font-size: 1.1rem;
+  border-radius: 0px;
+  margin-bottom: 20px;
+  background-color: dddfe2;
+  height: 40px;
+}
+.arrange {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-items: center;
+}
+.arrange .next {
+  margin-top: 10px;
+}
+tr:nth-child(2n) {
+  background-color: #f1f1f17a;
+}
+.listing2 input {
+  width: 180px;
 }
